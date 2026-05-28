@@ -3,6 +3,8 @@
 
 using namespace testing;
 
-TEST(BaseeballGame, TryGameTest) {
-	EXPECT_EQ(1, 1);
+TEST(BaseeballGame, ThrowExceptionWhenLengthIsUnmached) {
+	Baseball game;
+	EXPECT_THROW(game.guess(string("12")), length_error);
+
 }

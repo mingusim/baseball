@@ -21,7 +21,16 @@ public:
 			return { true,3,0 };
 		}
 
-		return {false, 0, 0};
+		int strikes = 0;
+		int balls = 0;
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				if (guessNum[i] != question[j]) continue;
+				if (i == j) strikes++;
+				else balls++;
+			}
+		}
+		return { false, strikes, balls };
 	}
 
 	void assertIllegalArgument(const std::string& guessNum)
